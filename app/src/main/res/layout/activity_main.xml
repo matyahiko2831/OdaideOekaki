@@ -8,14 +8,26 @@
         android:id="@+id/drawing_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.matyahiko2831.odaideoekaki.DrawingView"
-        android:layout_above="@+id/delete_button"/>
+        class="com.matyahiko2831.odaideoekaki.DrawingView" />
 
-    <Button
-        android:id="@+id/delete_button"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="delete" />
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_delete" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_share" />
 
 </RelativeLayout>
