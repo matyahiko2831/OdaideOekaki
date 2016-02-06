@@ -28,6 +28,6 @@
         android:layout_alignParentRight="true"
         android:layout_gravity="bottom|right"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_share" />
+        android:src="@drawable/icon_twitter" />
 
 </RelativeLayout>

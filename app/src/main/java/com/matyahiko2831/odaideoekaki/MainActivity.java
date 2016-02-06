@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         // シェアボタン
         FloatingActionButton fab_share = (FloatingActionButton) findViewById(R.id.fab_share);
-        fab_share.setBackgroundTintList(ColorStateList.valueOf(Color.BLUE));
+        fab_share.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00aced")));
         fab_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
