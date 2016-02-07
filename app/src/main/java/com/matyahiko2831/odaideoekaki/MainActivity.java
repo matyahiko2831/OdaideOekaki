@@ -8,7 +8,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -104,6 +103,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 drawingView.delete();
             }
         });
+
+        // お題をタイトルにセットする
+        setDrawTheme();
+    }
+
+
+    /**
+     * お題をタイトルにセットする
+     * */
+    private void setDrawTheme(){
+        setTitle("お題 フリーテーマ");
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -144,14 +154,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else{
             // 認証済時
             // スクリーンショット取得
-            View root = (View) findViewById(R.id.screen_view);
-            root.setDrawingCacheEnabled(true);
-            Bitmap bitmap1 = Bitmap.createBitmap(root.getDrawingCache());
+            View screen = (View) findViewById(R.id.screen_view);
+            screen.setDrawingCacheEnabled(true);
+            screen.setDrawingCacheBackgroundColor(Color.WHITE);
+            Bitmap bitmap1 = Bitmap.createBitmap(screen.getDrawingCache());
+            screen.setDrawingCacheEnabled(false);
 
             // スクリーンショットの保存
             try {
                 // 保存先を決定
-//                File file = new File(Environment.getExternalStorageDirectory().getPath() + "/scTweetTest/");
                 File file = new File(appPath);
 
                 if (!file.exists()) {

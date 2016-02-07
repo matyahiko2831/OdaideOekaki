@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OdaideOekaki</string>
+    <string name="app_name">お題DEお絵かき</string>
     <string name="twitter_consumer_key">38rQFt0c2GZxZHIWlMyOg3kHc</string>
     <string name="twitter_consumer_secret">UtpyzWPJlP2YG5tIkdna1W8BReuV2GxtD0ikxmdmeJ3sBN6UTP</string>
     <string name="twitter_callback_url">gabu://twitter</string>

@@ -51,6 +51,7 @@ public class DrawingView  extends View {
                 this.path.lineTo(x, y);
                 break;
         }
+
         invalidate();
         return true;
     }
