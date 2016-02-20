@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private String appPath;
 
-
+    private static final String HASH_TAG = " #お題DEお絵かき";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,8 +186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             // ツイート可能文字数を表示
-//            int length = 140 - tweetText.length() - sUrl.length();
-            int length = 140 - tweetText.length();
+            int length = 140 - tweetText.length() - HASH_TAG.length();
             tweetTextCount.setTextColor(Color.GRAY);
             tweetTextCount.setText(String.valueOf(length));
 
@@ -226,8 +225,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             protected Boolean doInBackground(String... params) {
                 try {
                     // 本文セット
-//                    final StatusUpdate status = new StatusUpdate(params[0] + sUrl);
-                    final StatusUpdate status = new StatusUpdate(params[0]);
+                    final StatusUpdate status = new StatusUpdate(params[0] + HASH_TAG);
 
                     // 画像セット
                     File file = new File(appPath + "/image.jpg");
