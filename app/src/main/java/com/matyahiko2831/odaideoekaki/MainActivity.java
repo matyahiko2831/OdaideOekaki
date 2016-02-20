@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.matyahiko2831.odaideoekaki.utils.OdaiMaker;
 import com.matyahiko2831.odaideoekaki.utils.twitter.TwitterOAuthActivity;
 import com.matyahiko2831.odaideoekaki.utils.twitter.TwitterUtils;
 
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView tweetTextCount;
 
     private String appPath;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +87,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 // Twitter投稿
                 postImageToTwitter();
-//                Uri uri = Uri.parse("https://twitter.com/intent/tweet?text= てすと");
-//
-//                Intent twitterIntent = new Intent(Intent.ACTION_VIEW, uri);
-//                startActivity(twitterIntent);
             }
         });
 
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      * お題をタイトルにセットする
      * */
     private void setDrawTheme(){
-        setTitle("お題 フリーテーマ");
+        setTitle("お題 " + OdaiMaker.getOdai());
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
