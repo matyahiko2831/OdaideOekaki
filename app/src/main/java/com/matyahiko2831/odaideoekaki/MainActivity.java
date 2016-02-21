@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String appPath;
 
     private static final String HASH_TAG = " #お題DEお絵かき";
+    private static String TITLE = "かっこいい犬";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +114,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      * お題をタイトルにセットする
      * */
     private void setDrawTheme(){
-        setTitle("お題 " + OdaiMaker.getOdai());
+        setTitle("お題 " + TITLE);
+    }
+
+    /**
+     * お題を更新する
+     * */
+    private void updateTheme(){
+        TITLE = OdaiMaker.getOdai();
+        this.setDrawTheme();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.update_theme) {
+
+            // お題を更新する
+            this.updateTheme();
+            showToast("お題変更");
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -139,7 +173,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
     /**
      * Twitterに画像を投稿する
      * */
@@ -150,7 +183,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, TwitterOAuthActivity.class);
             startActivity(intent);
             finish();
-        }else{
+        }
+        else{
             // 認証済時
             // スクリーンショット取得
             View screen = (View) findViewById(R.id.screen_view);
@@ -220,6 +254,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     /** 非同期でのツイート処理 **/
     private void tweet() {
+
         AsyncTask<String, Void, Boolean> task = new AsyncTask<String, Void, Boolean>() {
             @Override
             protected Boolean doInBackground(String... params) {

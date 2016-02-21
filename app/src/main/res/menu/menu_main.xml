@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.matyahiko2831.odaideoekaki.MainActivity.MainActivity">
+    <item
+        android:id="@+id/update_theme"
+        android:orderInCategory="100"
+        android:title="@string/update_theme"
+        android:icon="@drawable/arrow_circle"
+        app:showAsAction="always" />
+</menu>

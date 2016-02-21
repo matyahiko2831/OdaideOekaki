@@ -24,18 +24,20 @@ public class TwitterOAuthActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_twitter_oauth);
+//        setContentView(R.layout.activity_twitter_oauth);
 
         mCallbackURL = getString(R.string.twitter_callback_url);
         mTwitter = TwitterUtils.getTwitterInstance(this);
+        startAuthorize();
 
-        findViewById(R.id.action_start_oauth).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startAuthorize();
-            }
-        });
+//        findViewById(R.id.action_start_oauth).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startAuthorize();
+//            }
+//        });
     }
 
     /**
@@ -91,7 +93,7 @@ public class TwitterOAuthActivity extends Activity {
             protected void onPostExecute(AccessToken accessToken) {
                 if (accessToken != null) {
                     // 認証成功！
-                    showToast("認証成功！");
+                    showToast("Twitter認証成功");
                     successOAuth(accessToken);
                 } else {
                     // 認証失敗。。。
